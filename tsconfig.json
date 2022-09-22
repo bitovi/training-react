@@ -17,7 +17,7 @@
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      "@utilities/*": ["utilities/*"]
+      "@utilities/*": ["src/utilities/*"]
     }
   },
   "include": ["src"],
