@@ -1,5 +1,3 @@
-import { useScore } from "./scoreContext";
-
 import styles from "./Score.module.css";
 
 interface DisplayProps {
