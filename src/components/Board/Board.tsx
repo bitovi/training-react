@@ -1,9 +1,8 @@
 import Square from "./Square";
 import { useTicTacToe } from "./useTicTacToe";
+import GameInformation from "./GameInformation";
 
 import styles from "./Board.module.css";
-import GameInformation from "./GameInformation";
-import { ComponentProps } from "react";
 
 const Board = () => {
   const { board, handleSquareSelect, reset, currentTurn, winner, isGameOver } =

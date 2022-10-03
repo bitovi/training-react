@@ -1,11 +1,11 @@
-import type { BoardSquareValues } from "./interfaces";
+import type { BoardSquareValue } from "@utilities/ticTacToe";
 
 import styles from "./GameInformation.module.css";
 
 interface GameInformationProps {
   isGameOver: boolean;
-  winner: BoardSquareValues;
-  currentTurn: BoardSquareValues;
+  winner: BoardSquareValue;
+  currentTurn: BoardSquareValue;
   reset: () => void;
 }
 

@@ -1,10 +1,10 @@
-import type { BoardSquareValues } from "./interfaces";
+import type { BoardSquareValue } from "@utilities/ticTacToe";
 
 import styles from "./Square.module.css";
 
 interface BoardSquareProps {
   onSquareSelect: () => void;
-  value: BoardSquareValues;
+  value: BoardSquareValue;
 }
 
 const Square = ({ onSquareSelect, value }: BoardSquareProps) => {
