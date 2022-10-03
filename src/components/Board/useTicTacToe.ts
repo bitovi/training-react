@@ -1,4 +1,4 @@
-import type { BoardSquareValues } from "./interfaces";
+import type { BoardSquareValue, Board, Player } from "@utilities/ticTacToe";
 
 import { useEffect, useState } from "react";
 
@@ -9,13 +9,14 @@ import { isGameOver, isWinner } from "@utilities/ticTacToe";
 const createNewTicTacToeBoard = () => Array(9).fill(null);
 
 export const useTicTacToe = () => {
-  const [board, setBoard] = useState<BoardSquareValues[]>(
-    createNewTicTacToeBoard
-  );
+  const { addWinX, addWinO } = useScore();
+
+  const [board, setBoard] = useState<Board>(createNewTicTacToeBoard);
 
   const [isX, setIsX] = useState(true);
-  const [winner, setWinner] = useState<BoardSquareValues>(null);
-  const currentTurn: NonNullable<BoardSquareValues> = isX ? "X" : "O";
+  const [winner, setWinner] = useState<BoardSquareValue>(null);
+  const currentTurn: Player = isX ? "X" : "O";
+  const updateWinCount = currentTurn == "X" ? addWinX : addWinO;
 
   useEffect(() => {
     if (!winner) return;
@@ -31,6 +32,7 @@ export const useTicTacToe = () => {
 
     if (isWinner(currentTurn, newBoard)) {
       setWinner(currentTurn);
+      updateWinCount();
     }
 
     setBoard(newBoard);

@@ -1,4 +1,5 @@
 import styles from "./Score.module.css";
+import { useScore } from "./scoreContext";
 
 interface DisplayProps {
   label: string;
@@ -15,13 +16,15 @@ const Display = ({ label, wins }: DisplayProps) => {
 };
 
 const Score = () => {
+  const { xWins, oWins } = useScore();
+
   return (
     <div className={styles.scoreContainer}>
       <h2>Score</h2>
       <div className={styles.scoreRow}>
-        <Display label="X Wins" wins={0} />
+        <Display label="X Wins" wins={xWins} />
         <div className={styles.scoreDivider} />
-        <Display label="O Wins" wins={0} />
+        <Display label="O Wins" wins={oWins} />
       </div>
     </div>
   );
