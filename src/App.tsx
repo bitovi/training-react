@@ -1,11 +1,11 @@
-import Square from "./Square";
+import Board from "./Board";
 
 import styles from "./App.module.css";
 
 function App() {
   return (
     <div className={styles.app}>
-      <Square value="X" />
+      <Board />
     </div>
   );
 }
