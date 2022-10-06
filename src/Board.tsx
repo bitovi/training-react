@@ -1,6 +1,6 @@
 import type { TicTacToeBoard, Player } from "@utilities/ticTacToe";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { isWinner } from "@utilities/ticTacToe";
 
@@ -35,6 +35,14 @@ const Board = () => {
     },
     [board, isX]
   );
+
+  useEffect(() => {
+    if (!winner) {
+      return;
+    }
+
+    alert(`${winner} has won the game`);
+  }, [winner]);
 
   return (
     <div className={styles.board}>
