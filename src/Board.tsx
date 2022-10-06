@@ -1,6 +1,8 @@
-import type { TicTacToeBoard } from "@utilities/ticTacToe";
+import type { TicTacToeBoard, Player } from "@utilities/ticTacToe";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
+
+import { isWinner } from "@utilities/ticTacToe";
 
 import Square from "./Square";
 
@@ -11,18 +13,28 @@ const initialBoard = Array(9).fill(null);
 const Board = () => {
   const [board, setBoard] = useState<TicTacToeBoard>(initialBoard);
   const [isX, setIsX] = useState(true);
+  const [winner, setWinner] = useState<Player>();
 
-  const handleSquareSelect = (selectedSquare: number) => {
-    if (board[selectedSquare]) {
-      return;
-    }
+  const currentTurn = isX ? "X" : "O";
 
-    const newBoard = [...board];
-    newBoard[selectedSquare] = isX ? "X" : "O";
+  const handleSquareSelect = useCallback(
+    (selectedSquare: number) => {
+      if (board[selectedSquare]) {
+        return;
+      }
 
-    setBoard(newBoard);
-    setIsX(!isX);
-  };
+      const newBoard = [...board];
+      newBoard[selectedSquare] = currentTurn;
+
+      if (isWinner(currentTurn, newBoard)) {
+        setWinner(currentTurn);
+      }
+
+      setBoard(newBoard);
+      setIsX(!isX);
+    },
+    [board, isX]
+  );
 
   return (
     <div className={styles.board}>
