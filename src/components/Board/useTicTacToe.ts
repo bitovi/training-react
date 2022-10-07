@@ -1,4 +1,8 @@
-import type { Board, BoardSquareValue, Player } from "@utilities/ticTacToe";
+import type {
+  TicTacToeBoard,
+  BoardSquareValue,
+  Player,
+} from "@utilities/ticTacToe";
 
 import { useEffect, useState } from "react";
 
@@ -7,7 +11,7 @@ import { isGameOver, isWinner } from "@utilities/ticTacToe";
 const createNewTicTacToeBoard = () => Array(9).fill(null);
 
 export const useTicTacToe = () => {
-  const [board, setBoard] = useState<Board>(createNewTicTacToeBoard);
+  const [board, setBoard] = useState<TicTacToeBoard>(createNewTicTacToeBoard);
 
   const [isX, setIsX] = useState(true);
   const [winner, setWinner] = useState<BoardSquareValue>(null);
