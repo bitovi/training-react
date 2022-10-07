@@ -6,9 +6,8 @@ import type {
 
 import { useEffect, useState } from "react";
 
-import { useScore } from "../Score";
-
 import { isGameOver, isWinner } from "@utilities/ticTacToe";
+import { useScore } from "../Score";
 
 const createNewTicTacToeBoard = () => Array(9).fill(null);
 
@@ -20,7 +19,7 @@ export const useTicTacToe = () => {
   const [isX, setIsX] = useState(true);
   const [winner, setWinner] = useState<BoardSquareValue>(null);
   const currentTurn: Player = isX ? "X" : "O";
-  const updateWinCount = currentTurn == "X" ? addWinX : addWinO;
+  const updateScore = isX ? addWinX : addWinO;
 
   useEffect(() => {
     if (!winner) return;
@@ -36,7 +35,7 @@ export const useTicTacToe = () => {
 
     if (isWinner(currentTurn, newBoard)) {
       setWinner(currentTurn);
-      updateWinCount();
+      updateScore();
     }
 
     setBoard(newBoard);

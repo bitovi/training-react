@@ -1,6 +1,6 @@
-import styles from "./Score.module.css";
 import { useScore } from "./scoreContext";
 
+import styles from "./Score.module.css";
 interface DisplayProps {
   label: string;
   wins: number;
