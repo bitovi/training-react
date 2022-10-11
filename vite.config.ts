@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "training-react",
+  base: "/training-react",
   plugins: [react()],
   resolve: {
     alias: [
