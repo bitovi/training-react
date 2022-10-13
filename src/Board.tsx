@@ -7,8 +7,8 @@ const board = Array(9).fill(null);
 const Board = () => {
   return (
     <div className={styles.board}>
-      {board.map((squareValue) => (
-        <Square key={squareValue} value={squareValue} />
+      {board.map((squareValue, index) => (
+        <Square key={index} value={squareValue} />
       ))}
     </div>
   );
