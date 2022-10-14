@@ -10,14 +10,6 @@ We need to modify the `Board` component to keep track of the game’s current st
 import type { TicTacToeBoard } from "@utilities/ticTacToe";
 ```
 
-it has the following shape:
-
-```ts
-export type Player = "X" | "O";
-export type BoardSquareValues = Player | null;
-export type TicTacToeBoard = BoardSquareValues[];
-```
-
 Once the `board` variable has been created, use it to create the nine `Squares`, which should render the value of the board at its index.
 
 Additionally, tic-tac-toe is a turn-based game that alternates between two players. We need a way to track which player’s turn it is. Inside the `Board` component, create another stateful variable called `isX`, a `boolean` representing whether or not it is `X`’s turn to go.
